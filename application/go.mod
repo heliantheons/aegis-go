@@ -4,7 +4,7 @@ go 1.26
 
 require (
 	github.com/go-json-experiment/json v0.0.0-20260214004413-d219187c3433
-	github.com/heliantheon/aegis-go/utilities v0.0.2-0.20260810151700-2ab76612b78a
+	github.com/heliantheon/aegis-go/utilities v0.0.2
 )
 
 require (

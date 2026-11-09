@@ -1,10 +1,11 @@
 package token
 
 const (
-	ClaimType  = "typ"
-	ClaimCli   = "cli"
-	ClaimScope = "scope"
-	ClaimAct   = "act"
+	ClaimTokenType = "token_type"
+	ClaimType      = "typ"
+	ClaimCli       = "cli"
+	ClaimScope     = "scope"
+	ClaimAct       = "act"
 
 	ScopeOpenID  = "openid"
 	ScopeProfile = "profile"
