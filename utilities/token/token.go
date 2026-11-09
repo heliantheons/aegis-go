@@ -77,8 +77,13 @@ const (
 )
 
 // DetectType infers the token type from claims.
-// Rules: iss==aud==cli → SSO, has typ → Challenge, has cli → UAT, otherwise → CT
+// Explicit token_type takes precedence; other tokens use their established claims.
 func DetectType(t *paseto.Token) TokenType {
+	var declaredType string
+	if t.Get(ClaimTokenType, &declaredType) == nil && declaredType != "" {
+		return TokenType(declaredType)
+	}
+
 	iss, err := t.GetIssuer()
 	if err != nil {
 		iss = ""

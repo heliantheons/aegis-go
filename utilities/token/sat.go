@@ -73,6 +73,9 @@ func (s *ServiceAccessToken) Build() (*paseto.Token, error) {
 	if err := s.SetStandardClaims(&t); err != nil {
 		return nil, fmt.Errorf("set standard claims: %w", err)
 	}
+	if err := t.Set(ClaimTokenType, string(TokenTypeSAT)); err != nil {
+		return nil, fmt.Errorf("set token type: %w", err)
+	}
 	if err := t.Set(ClaimScope, s.scope); err != nil {
 		return nil, fmt.Errorf("set scope: %w", err)
 	}
